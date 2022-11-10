@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Karla', sans-serif;
+}
+
+.logo{
+    width: 15%;
+}
+
+header{
+    width: 100%;
+    max-width: inherit;
+}
+
+nav{
+    position: fixed;
+    width: inherit;
+    max-width: inherit;
+    top: -50px;
+    transition: top 0.3s;
+}
