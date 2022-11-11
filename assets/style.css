@@ -25,7 +25,11 @@ nav{
 .divider:after,
 .divider:before {
 content: "";
-width: 3rem;
+width: 2rem;
 height: 1px;
-background: #eee;
+background: rgb(185, 185, 185);
+}
+
+.about-img{
+    width: 35rem;
 }
