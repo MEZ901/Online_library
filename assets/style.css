@@ -22,8 +22,8 @@ nav{
     transition: top 0.3s;
 }
 
-.divider:after,
-.divider:before {
+.Hdivider:after,
+.Hdivider:before {
 content: "";
 width: 2rem;
 height: 1px;
@@ -32,4 +32,20 @@ background: rgb(185, 185, 185);
 
 .about-img{
     width: 35rem;
+}
+
+.divider:after,
+.divider:before {
+content: "";
+flex: 1;
+height: 1px;
+background: #eee;
+}
+.h-custom {
+height: calc(100% - 73px);
+}
+@media (max-width: 450px) {
+.h-custom {
+height: 100%;
+}
 }
