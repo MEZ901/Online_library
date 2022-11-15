@@ -20,6 +20,7 @@ nav{
     max-width: inherit;
     top: -50px;
     transition: top 0.3s;
+    z-index: 999;
 }
 
 .Hdivider:after,
