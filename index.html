@@ -21,19 +21,19 @@
 
 <body>
   <div class="container">
-    <header>
+    <header id="home">
       <nav class="d-flex justify-content-between bg-white" id="navbar">
         <img class="logo mt-2 mb-2" src="assets/img/Logo.png" alt="Logo" />
         <div class="w-25 mt-2 mb-2">
           <ul class="d-flex justify-content-around w-100 list-unstyled mb-0">
             <li>
-              <a href="" class="text-decoration-none text-dark">home</a>
+              <a href="#home" class="text-decoration-none text-dark">home</a>
             </li>
             <li>
-              <a href="" class="text-decoration-none text-dark">about</a>
+              <a href="#about" class="text-decoration-none text-dark">about</a>
             </li>
             <li>
-              <a href="" class="text-decoration-none text-dark">feedback</a>
+              <a href="#feedback" class="text-decoration-none text-dark">feedback</a>
             </li>
           </ul>
         </div>
@@ -46,7 +46,7 @@
           <p>
             Online Library Management System is an Automated Library System
             that handles the various functions of the library
-            <a href="" class="text-decoration-none">...read more</a>
+            <a href="#about" class="text-decoration-none">...read more</a>
           </p>
         </div>
         <div class="w-75">
@@ -54,22 +54,14 @@
         </div>
       </div>
       <div class="text-center">
-        <button type="button" class="btn btn-cstm shadow-sm" style="
-              --bs-btn-padding-y: 0.5rem;
-              --bs-btn-padding-x: 2.25rem;
-              --bs-btn-font-size: 1rem;
-            ">
-          Login
+        <button type="button" class="btn btn-cstm shadow-sm" style="--bs-btn-padding-y: 0.5rem; --bs-btn-padding-x: 2.25rem; --bs-btn-font-size: 1rem;">
+          <a href="#login" class="text-white text-decoration-none">Login</a> 
         </button>
         <div class="Hdivider d-flex align-items-center my-2 justify-content-center">
           <p class="text-center mx-3 mb-0">Or</p>
         </div>
-        <button type="button" class="btn btn-cstm shadow-sm" style="
-              --bs-btn-padding-y: 0.5rem;
-              --bs-btn-padding-x: 2rem;
-              --bs-btn-font-size: 1rem;
-            ">
-          Sign up
+        <button type="button" class="btn btn-cstm shadow-sm" style=" --bs-btn-padding-y: 0.5rem; --bs-btn-padding-x: 2rem; --bs-btn-font-size: 1rem;">
+          <a href="#signUp" class="text-white text-decoration-none">Sign up</a> 
         </button>
       </div>
     </header>
@@ -77,7 +69,7 @@
 
       <!-- about -->
 
-      <section class="about mt-5">
+      <section class="mt-5" id="about">
         <div class="position-relative">
           <img class="about-img" src="assets/img/img4.png" alt="cover" />
           <h3 class="text-center text-uppercase m-5">about:</h3>
@@ -100,7 +92,7 @@
 
       <!-- login -->
 
-      <section class="vh-100">
+      <section class="vh-100" id="login">
         <div class="container-fluid h-custom">
           <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-md-9 col-lg-6 col-xl-5">
@@ -157,7 +149,7 @@
 
       <!-- sign up -->
 
-      <section class="">
+      <section id="signUp">
         <div class="container h-100">
           <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-lg-12 col-xl-11">
@@ -232,7 +224,7 @@
 
       <!-- feedback -->
 
-      <section>
+      <section id="feedback">
         <div class="w-25 m-auto">
           <img src="assets/img/img5.jpg" class="img-fluid" alt="cover">
         </div>
