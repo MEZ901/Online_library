@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Karla', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 .logo{
@@ -31,7 +31,8 @@ background: rgb(185, 185, 185);
 }
 
 .about-img{
-    width: 35rem;
+    width: 25rem;
+    float: right;
 }
 
 .divider:after,
