@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" />
 
-  <title>Library</title>
+  <title>Online Library</title>
 
   <!-- ================== BEGIN core-css ================== -->
   <link rel="stylesheet" href="assets/bootstrap-5.2.2/css/bootstrap.min.css" />
@@ -54,14 +54,18 @@
         </div>
       </div>
       <div class="text-center">
-        <button type="button" class="btn btn-cstm shadow-sm" style="--bs-btn-padding-y: 0.5rem; --bs-btn-padding-x: 2.25rem; --bs-btn-font-size: 1rem;">
-          <a href="#login" class="text-white text-decoration-none">Login</a> 
+        <button type="button" class="btn btn-cstm shadow-sm"
+          style="--bs-btn-padding-y: 0.5rem; --bs-btn-padding-x: 2.25rem; --bs-btn-font-size: 1rem;"
+          onclick="login(); window.location.href='#login';">
+          Login
         </button>
         <div class="Hdivider d-flex align-items-center my-2 justify-content-center">
           <p class="text-center mx-3 mb-0">Or</p>
         </div>
-        <button type="button" class="btn btn-cstm shadow-sm" style=" --bs-btn-padding-y: 0.5rem; --bs-btn-padding-x: 2rem; --bs-btn-font-size: 1rem;">
-          <a href="#signUp" class="text-white text-decoration-none">Sign up</a> 
+        <button type="button" class="btn btn-cstm shadow-sm"
+          style=" --bs-btn-padding-y: 0.5rem; --bs-btn-padding-x: 2rem; --bs-btn-font-size: 1rem;"
+          onclick="signUp(); window.location.href='#signUp';">
+          Sign up
         </button>
       </div>
     </header>
@@ -70,24 +74,22 @@
       <!-- about -->
 
       <section class="mt-5" id="about">
-        <div class="position-relative">
-          <img class="about-img" src="assets/img/img4.png" alt="cover" />
-          <h3 class="text-center text-uppercase m-5">about:</h3>
-          <p>
-            Online Library Management System is an Automated Library System
-            that handles the various functions of the library. It provides a
-            complete solution to the library management software. The online
-            Library Management System is classified into two parts Bar Code
-            System and RFID System.<br />Library plays an important role in
-            all schools and colleges, no educational institution can exist
-            without Library Administration Software. It is an important part
-            of every school and college and it helps the librarian to keep
-            records of available books as well as issued books. Library
-            Management System software helps in different ways by providing
-            students the facility to learn, gather resources, promote group
-            learning and improve knowledge and skills.
-          </p>
-        </div>
+        <img class="about-img sm-d-none" src="assets/img/img4.png" alt="cover" />
+        <h3 class="text-center text-uppercase m-5">about:</h3>
+        <p>
+          Online Library Management System is an Automated Library System
+          that handles the various functions of the library. It provides a
+          complete solution to the library management software. The online
+          Library Management System is classified into two parts Bar Code
+          System and RFID System.<br />Library plays an important role in
+          all schools and colleges, no educational institution can exist
+          without Library Administration Software. It is an important part
+          of every school and college and it helps the librarian to keep
+          records of available books as well as issued books. Library
+          Management System software helps in different ways by providing
+          students the facility to learn, gather resources, promote group
+          learning and improve knowledge and skills.
+        </p>
       </section>
 
       <!-- login -->
@@ -95,7 +97,7 @@
       <section class="vh-100" id="login">
         <div class="container-fluid h-custom">
           <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col-md-9 col-lg-6 col-xl-5">
+            <div class="col-lg-6 col-xl-5">
               <img src="assets/img/img3.png" class="img-fluid" alt="cover" />
             </div>
             <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
@@ -138,7 +140,7 @@
                   </button>
                   <p class="small mt-2 pt-1 mb-0">
                     Don't have an account?
-                    <a href="#!" class="link-primary text-decoration-none">Register</a>
+                    <a href="#signUp" class="link-primary text-decoration-none" onclick="signUp()">Register</a>
                   </p>
                 </div>
               </form>
@@ -207,7 +209,7 @@
                         </button>
                         <p class="small mt-2 pt-1 mb-0">
                           Already have an account?
-                          <a href="#!" class="link-primary text-decoration-none">Login</a>
+                          <a href="#login" class="link-primary text-decoration-none" onclick="login()">Login</a>
                         </p>
                       </div>
                     </form>

@@ -7,3 +7,13 @@ function scrollFunction() {
     document.getElementById("navbar").style.top = "-50px";
   }
 }
+
+function signUp(){
+  document.getElementById("signUp").style.display="block";
+  document.getElementById("login").style.display="none";
+}
+
+function login(){
+  document.getElementById("signUp").style.display="none";
+  document.getElementById("login").style.display="block";
+}
