@@ -9,12 +9,12 @@
     width: 15%;
 }
 
-header{
+#home{
     width: 100%;
     max-width: inherit;
 }
 
-nav{
+#home nav{
     position: fixed;
     width: inherit;
     max-width: inherit;
@@ -23,8 +23,8 @@ nav{
     z-index: 9999;
 }
 
-.Hdivider:after,
-.Hdivider:before {
+.homeDivider:after,
+.homeDivider:before {
 content: "";
 width: 2rem;
 height: 1px;
@@ -36,8 +36,8 @@ background: rgb(185, 185, 185);
     float: right;
 }
 
-.divider:after,
-.divider:before {
+.loginDivider:after,
+.loginDivider:before {
 content: "";
 flex: 1;
 height: 1px;
@@ -50,6 +50,14 @@ height: calc(100% - 73px);
 
 #signUp{
     display: none;
+}
+
+.booksDivider:after,
+.booksDivider:before {
+content: "";
+flex: 1;
+height: 1px;
+background: rgb(185, 185, 185);
 }
 
 @media (max-width: 450px) {
