@@ -76,7 +76,7 @@
                                             <div class="my-4 d-flex justify-content-between">
                                                 <div>
                                                     <button type="button" class="btn btn-cstm mb-1">Save</button>
-                                                    <button type="button" class="btn btn-danger" onclick="window.location.href='dashboard.html';">Cancel</button>
+                                                    <button type="button" class="btn btn-danger" onclick="window.location.href='dashboard.php';">Cancel</button>
                                                 </div>
                                                 <a href="" class="text-danger text-decoration-none" data-bs-toggle="modal" data-bs-target="#delete-account-warning">remove account.</a>
                                             </div>

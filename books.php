@@ -40,7 +40,7 @@
                             <i class="fas fa-user"></i>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="settings.html">settings</a></li>
+                            <li><a class="dropdown-item" href="settings.php">settings</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="#">log out</a></li>
                         </ul>
@@ -49,7 +49,7 @@
             </nav>
             <div class="d-flex justify-content-between my-3">
                 <h2 class="fw-bold">All books</h2>
-                <button type="button" class="btn btn-cstm" onclick="window.location.href='addBook.html';"><i class="fa fa-plus" aria-hidden="true"></i> Add book</button>
+                <button type="button" class="btn btn-cstm" onclick="window.location.href='addBook.php';"><i class="fa fa-plus" aria-hidden="true"></i> Add book</button>
             </div>
         </header>
         <main>

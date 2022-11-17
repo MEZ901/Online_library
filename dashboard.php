@@ -45,7 +45,7 @@
               <i class="fas fa-user"></i>
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="settings.html">settings</a></li>
+              <li><a class="dropdown-item" href="settings.php">settings</a></li>
               <li>
                 <hr class="dropdown-divider">
               </li>
@@ -72,7 +72,7 @@
           <div class="lg-col-3" style="width: 10rem;">
             <img class="img-thumbnail" src="assets/img/Show-Your-Work.jpg" alt="Show-Your-Work">
           </div>
-          <a class="text-black text-decoration-none d-flex align-items-center justify-content-center" href="books.html">show all
+          <a class="text-black text-decoration-none d-flex align-items-center justify-content-center" href="books.php">show all
             books ...</a>
         </div>
       </section>
