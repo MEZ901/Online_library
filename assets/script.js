@@ -8,12 +8,12 @@ function scrollFunction() {
   }
 }
 
-function signUp(){
+function signUpJs(){
   document.getElementById("signUp").style.display="block";
   document.getElementById("login").style.display="none";
 }
 
-function login(){
+function loginJs(){
   document.getElementById("signUp").style.display="none";
   document.getElementById("login").style.display="block";
 }

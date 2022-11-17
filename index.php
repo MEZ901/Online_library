@@ -1,3 +1,5 @@
+<?php include('main.php') ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -101,7 +103,7 @@
               <img src="assets/img/img3.png" class="img-fluid d-none d-lg-block" alt="cover" />
             </div>
             <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-              <form>
+              <form action="main.php" method="POST">
                 <div class="d-flex align-items-center justify-content-center justify-content-lg-center">
                   <p class="fs-2 fw-bold mb-0 me-3 text-cstm">Login</p>
                 </div>
@@ -113,13 +115,13 @@
                 </div>
 
                 <div class="form-floating mb-4">
-                  <input type="email" id="loginEmail" class="form-control form-control-lg"
+                  <input name="loginEmail" type="email" id="loginEmail" class="form-control form-control-lg"
                     placeholder="Enter a valid email address" />
                   <label class="form-label text-muted" for="loginEmail">Email address</label>
                 </div>
 
                 <div class="form-floating mb-3">
-                  <input type="password" id="loginPassword" class="form-control form-control-lg"
+                  <input name="loginPassword" type="password" id="loginPassword" class="form-control form-control-lg"
                     placeholder="Enter password" />
                   <label class="form-label text-muted" for="loginPassword">Password</label>
                 </div>
@@ -135,7 +137,7 @@
                 </div>
 
                 <div class="text-center text-lg-start mt-3 pt-2">
-                  <button type="button" class="btn btn-cstm shadow" style="padding-left: 1.5rem; padding-right: 1.5rem">
+                  <button name="login" type="submit" class="btn btn-cstm shadow" style="padding-left: 1.5rem; padding-right: 1.5rem">
                     LOGIN
                   </button>
                   <p class="small mt-2 pt-1 mb-0">
@@ -160,19 +162,19 @@
                   <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
                     <p class="text-center text-cstm fs-2 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
 
-                    <form class="mx-1 mx-md-4">
+                    <form action="main.php" method="POST" class="mx-1 mx-md-4">
 
                       <div class="d-flex gap-2">
                         <div class="d-flex flex-row align-items-center mb-4">
                           <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                           <div class="form-floating flex-fill mb-0">
-                            <input type="text" id="fname" class="form-control" placeholder="First Name" />
+                            <input name="fname" type="text" id="fname" class="form-control" placeholder="First Name" />
                             <label class="form-label text-muted" for="fname">First Name</label>
                           </div>
                         </div>
 
                         <div class="form-floating flex-fill mb-0">
-                          <input type="text" id="lname" class="form-control" placeholder="Last Name" />
+                          <input name="lname" type="text" id="lname" class="form-control" placeholder="Last Name" />
                           <label class="form-label text-muted" for="lname">Last Name</label>
                         </div>
                       </div>
@@ -180,7 +182,7 @@
                       <div class="d-flex flex-row align-items-center mb-4">
                         <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                         <div class="form-floating flex-fill mb-0">
-                          <input type="email" id="email" class="form-control" placeholder="Your Email" />
+                          <input name="email" type="email" id="email" class="form-control" placeholder="Your Email" />
                           <label class="form-label text-muted" for="email">Your Email</label>
                         </div>
                       </div>
@@ -188,7 +190,7 @@
                       <div class="d-flex flex-row align-items-center mb-4">
                         <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                         <div class="form-floating flex-fill mb-0">
-                          <input type="password" id="password" class="form-control" placeholder="Password" />
+                          <input name="password" type="password" id="password" class="form-control" placeholder="Password" />
                           <label class="form-label text-muted" for="password">Password</label>
                         </div>
                       </div>
@@ -196,14 +198,13 @@
                       <div class="d-flex flex-row align-items-center mb-2">
                         <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                         <div class="form-floating flex-fill mb-0">
-                          <input type="password" id="repeatePassword" class="form-control"
-                            placeholder="Repeat your password" />
-                          <label class="form-label text-muted" for="repeatePassword">Repeat your password</label>
+                          <input name="repeatPassword" type="password" id="repeatPassword" class="form-control" placeholder="Repeat your password" />
+                          <label class="form-label text-muted" for="repeatPassword">Repeat your password</label>
                         </div>
                       </div>
 
                       <div class="text-center text-lg-start mt-3 pt-2">
-                        <button type="button" class="btn btn-cstm shadow"
+                        <button name="signUp" type="submit" class="btn btn-cstm shadow"
                           style="padding-left: 1.5rem; padding-right: 1.5rem;">
                           Sign up
                         </button>
