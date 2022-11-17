@@ -1,3 +1,7 @@
+<?php
+  include('main.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -50,7 +54,7 @@
           </li>
         </ul>
       </nav>
-      <h2 class="text-center fw-bold">Welcome, Issam!</h2>
+      <h2 class="text-center fw-bold">Welcome, <?=$_SESSION['firstName']?>!</h2>
     </header>
     <main>
 
