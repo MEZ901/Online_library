@@ -58,7 +58,7 @@
       <div class="text-center">
         <button type="button" class="btn btn-cstm shadow-sm"
           style="--bs-btn-padding-y: 0.5rem; --bs-btn-padding-x: 2.25rem; --bs-btn-font-size: 1rem;"
-          onclick="login(); window.location.href='#login';">
+          onclick="loginJs(); window.location.href='#login';">
           Login
         </button>
         <div class="homeDivider d-flex align-items-center my-2 justify-content-center">
@@ -66,7 +66,7 @@
         </div>
         <button type="button" class="btn btn-cstm shadow-sm"
           style=" --bs-btn-padding-y: 0.5rem; --bs-btn-padding-x: 2rem; --bs-btn-font-size: 1rem;"
-          onclick="signUp(); window.location.href='#signUp';">
+          onclick="signUpJs(); window.location.href='#signUp';">
           Sign up
         </button>
       </div>
@@ -142,7 +142,7 @@
                   </button>
                   <p class="small mt-2 pt-1 mb-0">
                     Don't have an account?
-                    <a href="#signUp" class="link-primary text-decoration-none" onclick="signUp()">Register</a>
+                    <a href="#signUp" class="link-primary text-decoration-none" onclick="signUpJs()">Register</a>
                   </p>
                 </div>
               </form>
@@ -210,7 +210,7 @@
                         </button>
                         <p class="small mt-2 pt-1 mb-0">
                           Already have an account?
-                          <a href="#login" class="link-primary text-decoration-none" onclick="login()">Login</a>
+                          <a href="#login" class="link-primary text-decoration-none" onclick="loginJs()">Login</a>
                         </p>
                       </div>
                     </form>
