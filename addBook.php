@@ -1,6 +1,6 @@
 <?php
   include('main.php');
-  if(!isset($_SESSION['firstName'])) {header('location: index.php');}
+  if(!isset($_SESSION['firstName'])) header('location: index.php');
 ?>
 
 <!DOCTYPE html>
@@ -58,49 +58,64 @@
             <h2 class="text-center fw-bold">Add book</h2>
         </header>
         <main>
-            <section class="d-block d-md-flex justify-content-between gap-5">
-                <div class="leftSide w-100 w-md-50">
-                    <div class="mb-3">
-                        <label for="title" class="form-label">Title:</label>
-                        <input type="text" class="form-control" id="title">
+            <section>
+                <?php if (isset($_SESSION['book_message'])): ?>
+                    <div class="alert alert-warning alert-dismissible fade show">
+                        <strong>Sorry!</strong>
+                        <?php 
+                        echo $_SESSION['book_message']; 
+                        unset($_SESSION['book_message']);
+                        ?>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></span>
                     </div>
-                    <div class="mb-3">
-                        <label for="Language" class="form-label">Language:</label>
-                        <input type="text" class="form-control" id="Language">
-                    </div>
-                    <div class="mb-3">
-                        <label for="genre" class="form-label">Genre:</label>
-                        <input type="text" class="form-control" id="genre">
-                    </div>
-                    <div class="mb-3">
-                        <label for="publicationDate" class="form-label">Publication date:</label>
-                        <input type="number" class="form-control" id="publicationDate">
-                    </div>
-                    <div class="mb-3">
-                        <label for="price" class="form-label">Price:</label>
-                        <input type="number" class="form-control" id="price">
-                    </div>
-                </div>
+			    <?php endif ?>
+                <form action="main.php" method="POST" enctype="multipart/form-data">
+                    <div class="d-block d-md-flex justify-content-between gap-5">
+                        <div class="leftSide w-100 w-md-50">
+                            <div class="mb-3">
+                                <label for="title" class="form-label">Title:</label>
+                                <input name="bookTitle" type="text" class="form-control" id="title">
+                            </div>
+                            <div class="mb-3">
+                                <label for="Language" class="form-label">Language:</label>
+                                <input name="bookLanguage" type="text" class="form-control" id="Language">
+                            </div>
+                            <div class="mb-3">
+                                <label for="genre" class="form-label">Genre:</label>
+                                <input name="bookGenre" type="text" class="form-control" id="genre">
+                            </div>
+                            <div class="mb-3">
+                                <label for="publicationDate" class="form-label">Publication date:</label>
+                                <input name="bookPublicationDate" type="number" class="form-control" id="publicationDate">
+                            </div>
+                            <div class="mb-3">
+                                <label for="price" class="form-label">Price:</label>
+                                <input name="bookPrice" type="number" min="0" max="10000" class="form-control" id="price">
+                            </div>
+                        </div>
 
-                <div class="rightSide w-100 w-md-50">
-                    <div class="mb-3">
-                        <label for="cover" class="form-label">Cover:</label>
-                        <input type="file" class="form-control" id="cover">
+                        <div class="rightSide w-100 w-md-50">
+                            <div class="mb-3">
+                                <label for="cover" class="form-label">Cover:</label>
+                                <input name="cover" type="file" class="form-control" id="cover">
+                            </div>
+                            <div class="mb-3">
+                                <label for="author" class="form-label">Author:</label>
+                                <input name="bookAuthor" type="text" class="form-control" id="author">
+                            </div>
+                            <div class="mb-3">
+                                <label for="description" class="form-label">Description:</label>
+                                <textarea name="bookDescription" id="description" class="form-control" aria-label="With textarea" rows="8"></textarea>
+                            </div>
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="author" class="form-label">Author:</label>
-                        <input type="text" class="form-control" id="author">
+                    <div class="mb-2">
+                        <button type="submit" name="addBook" class="btn btn-cstm" style="--bs-btn-padding-y: 0.5rem; --bs-btn-padding-x: 2.5rem; --bs-btn-font-size: 1rem;">Add</button>
+                        <button type="button" class="btn btn-danger" style=" --bs-btn-padding-y: 0.5rem; --bs-btn-padding-x: 2rem; --bs-btn-font-size: 1rem;" onclick="window.location.href='books.html';">Cancel</button>
                     </div>
-                    <div class="mb-3">
-                        <label for="description" class="form-label">Description:</label>
-                        <textarea id="description" class="form-control" aria-label="With textarea" rows="8"></textarea>
-                    </div>
-                </div>
+                </form>
             </section>
-            <div class="mb-2">
-                <button type="button" class="btn btn-cstm" style="--bs-btn-padding-y: 0.5rem; --bs-btn-padding-x: 2.5rem; --bs-btn-font-size: 1rem;">Add</button>
-                <button type="button" class="btn btn-danger" style=" --bs-btn-padding-y: 0.5rem; --bs-btn-padding-x: 2rem; --bs-btn-font-size: 1rem;" onclick="window.location.href='books.html';">Cancel</button>
-            </div>
+            
         </main>
 
     </div>

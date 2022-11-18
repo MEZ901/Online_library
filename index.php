@@ -113,7 +113,16 @@
                     welcome back!
                   </p>
                 </div>
-
+                <?php if (isset($_SESSION['message'])): ?>
+                  <div class="alert alert-warning alert-dismissible fade show">
+                    <strong>Sorry!</strong>
+                    <?php 
+                    echo $_SESSION['message']; 
+                    unset($_SESSION['message']);
+                    ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></span>
+                  </div>
+			          <?php endif ?>
                 <div class="form-floating mb-4">
                   <input name="loginEmail" type="email" id="loginEmail" class="form-control form-control-lg"
                     placeholder="Enter a valid email address" />

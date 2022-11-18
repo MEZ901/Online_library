@@ -1,6 +1,6 @@
 <?php
   include('main.php');
-  if(!isset($_SESSION['firstName'])) {header('location: index.php');}
+  if(!isset($_SESSION['firstName'])) header('location: index.php');
 ?>
 
 <!DOCTYPE html>
@@ -58,6 +58,16 @@
             </div>
         </header>
         <main>
+            <?php if (isset($_SESSION['book_message'])): ?>
+                <div class="alert alert-success alert-dismissible fade show">
+                    <strong>Success!</strong>
+                    <?php 
+                    echo $_SESSION['book_message']; 
+                    unset($_SESSION['book_message']);
+                    ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></span>
+                </div>
+			<?php endif ?>
             <section class="d-flex justify-content-around flex-wrap gap-3 overflow-hidden my-3">
                 <div class="lg-col-3" style="width: 14rem;" data-bs-toggle="modal" data-bs-target="#bookInfo">
                     <img class="img-thumbnail" src="assets/img/Crime-And-Punishment.png" alt="Crime-And-Punishment">

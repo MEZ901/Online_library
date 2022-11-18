@@ -1,6 +1,6 @@
 <?php
   include('main.php');
-  if(!isset($_SESSION['firstName'])) {header('location: index.php');}
+  if(!isset($_SESSION['firstName'])) header('location: index.php');
 ?>
 
 <!DOCTYPE html>
