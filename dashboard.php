@@ -1,5 +1,6 @@
 <?php
   include('main.php');
+  if(!isset($_SESSION['firstName'])) {header('location: index.php');}
 ?>
 
 <!DOCTYPE html>
@@ -49,7 +50,7 @@
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item" href="#">log out</a></li>
+              <li><a class="dropdown-item" href="main.php?logout">log out</a></li>
             </ul>
           </li>
         </ul>

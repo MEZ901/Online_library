@@ -6,6 +6,7 @@
 
     if(isset($_POST['signUp'])) signUp();
     if(isset($_POST['login'])) login();
+    if(isset($_GET['logout'])) logout();
 
     function signUp(){
         global $conn;
@@ -36,6 +37,13 @@
             header('location: dashboard.php');
         }
         else header('location: index.php#login');
+    }
+
+    function logout(){
+        session_unset();
+        session_destroy();
+
+        header('location: index.php');
     }
 
 ?>
