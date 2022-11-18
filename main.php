@@ -77,12 +77,18 @@
                 move_uploaded_file($tmp_name, $img_upload_path);
 
                 $add = "insert into book (users_ID, title, cover, author, language, genre, publication_date, price, description) values ('$userID', '$bookTitle', '$new_img_name', '$bookAuthor', '$bookLanguage', '$bookGenre', '$bookPublicationDate', '$bookPrice', '$bookDescription')";
-                echo $add;
                 
-                mysqli_query($conn, $add);
+                $result = mysqli_query($conn, $add);
                 
-                $_SESSION['book_message'] = "The book has been added successfully !";
-                header('location: books.php');
+                if($result){
+                    $_SESSION['book_message'] = "The book has been added successfully !";
+                    header('location: books.php');
+                }else{
+                    $_SESSION['book_message'] = "Something went wrong please try again";
+                    header('location: addBook.php');
+                }
+                
+                
             }else{
                 $_SESSION['book_message'] = "You can't upload this type of files in cover";
                 header('location: addbook.php');
