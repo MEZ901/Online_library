@@ -90,18 +90,17 @@
                 
             }else{
                 $_SESSION['book_message'] = "You can't upload this type of files in cover";
-                header('location: addbook.php');
+                header('location: addBook.php');
             }
 
         }else{
             $_SESSION['book_message'] = "Unknown error occurred !";
-            header('location: addbook.php');
+            header('location: addBook.php');
         }
     }
 
     function showBooks($pre){
         global $conn;
-        extract($_POST);
         $userID = $_SESSION['userID'];
         
         if($pre == 0) $sql = "select * from book where users_ID = $userID order by book_ID desc";
@@ -122,5 +121,16 @@
             
         }
     }
+
+    function booksCounter(){
+        global $conn;
+        $userID = $_SESSION['userID'];
+
+        $count = "select * from book where users_ID = $userID";
+        $result = mysqli_query($conn, $count);
+        $num = mysqli_num_rows($result);
+
+        echo $num;
+    } 
 
 ?>

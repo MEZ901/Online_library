@@ -77,7 +77,7 @@
         <div class="d-flex justify-content-between">
           <div class="bg-cstm rounded my-3 d-flex flex-column justify-content-between" style="width: 30%;">
             <p class="text-white text-center py-2">Total books available</p>
-            <p class="text-white text-center fs-1 fw-bold">14</p>
+            <p class="text-white text-center fs-1 fw-bold"><?php booksCounter() ?></p>
           </div>
           <div class="bg-cstm rounded my-3 d-flex flex-column justify-content-between" style="width: 30%;">
             <p class="text-white text-center py-2">Total books sold</p>

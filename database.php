@@ -1,2 +1,2 @@
 <?php
-$conn = mysqli_connect("localhost", "root", "", "Online_library");
+$conn = mysqli_connect("localhost", "root", "", "online_library");
