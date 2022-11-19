@@ -17,3 +17,13 @@ function loginJs(){
   document.getElementById("signUp").style.display="none";
   document.getElementById("login").style.display="block";
 }
+
+function bookInfo(title,author,genre,price,language,publicationDate,description){
+  document.getElementById("modal-title").innerHTML = title;
+  document.getElementById("modal-author").innerHTML = author;
+  document.getElementById("modal-language").innerHTML = language;
+  document.getElementById("modal-genre").innerHTML = genre;
+  document.getElementById("modal-publication-date").innerHTML = publicationDate;
+  document.getElementById("modal-price").innerHTML = price;
+  document.getElementById("modal-description").innerHTML = description;
+}

@@ -111,9 +111,19 @@
         if($num > 0){
             while($row = $result->fetch_assoc()){
                 $cover = $row["cover"];
-                echo
-                '<div class="lg-col-3" style="width: 14rem;" data-bs-toggle="modal" data-bs-target="#bookInfo">
-                    <img class="img-thumbnail" src="assets/img/covers/'.$cover.'" alt="Crime-And-Punishment">
+                $title = $row['title'];
+                $author = $row["author"];
+                $language = $row["language"];
+                $genre = $row["genre"];
+                $publication_date = $row["publication_date"];
+                $price = $row["price"];
+                $description = $row["description"];
+
+                $pr = "'".$title."','".$author."','".$genre."','".$price."','".$language."','".$publication_date."','".$description."'";
+                
+                echo 
+                '<div class="lg-col-3" style="width: 14rem;" data-bs-toggle="modal" data-bs-target="#bookInfo" onclick="bookInfo('.$pr.');">
+                    <img class="img-thumbnail" src="assets/img/covers/'.$cover.'" alt="book cover">
                 </div>';
             }
         }else{

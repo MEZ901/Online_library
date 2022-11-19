@@ -81,12 +81,12 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <p class="fw-bold">Author : <span class="fw-normal">Fyodor Dostoevsky</span></p>
-                            <p class="fw-bold">Price : <span class="fw-normal">13$</span></p>
-                            <p class="fw-bold">Language : <span class="fw-normal">Russian</span></p>
-                            <p class="fw-bold">Genre : <span class="fw-normal">Literary fiction</span></p>
-                            <p class="fw-bold">Publication date : <span class="fw-normal">1866</span></p>
-                            <p class="fw-bold">Description : <span class="fw-normal">Crime and Punishment is a novel by the Russian author Fyodor Dostoevsky. It was first published in the literary journal The Russian Messenger in twelve monthly installments during 1866. It was later published in a single volume.</span></p>
+                            <p class="fw-bold">Author : <span class="fw-normal" id="modal-author">Fyodor Dostoevsky</span></p>
+                            <p class="fw-bold">Price : <span class="fw-normal" id="modal-price">13$</span></p>
+                            <p class="fw-bold">Language : <span class="fw-normal" id="modal-language">Russian</span></p>
+                            <p class="fw-bold">Genre : <span class="fw-normal" id="modal-genre">Literary fiction</span></p>
+                            <p class="fw-bold">Publication date : <span class="fw-normal" id="modal-publication-date">1866</span></p>
+                            <p class="fw-bold">Description : <span class="fw-normal" id="modal-description">Crime and Punishment is a novel by the Russian author Fyodor Dostoevsky. It was first published in the literary journal The Russian Messenger in twelve monthly installments during 1866. It was later published in a single volume.</span></p>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="fa-regular fa-trash-can"></i> Delete</button>
