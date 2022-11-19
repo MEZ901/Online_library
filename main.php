@@ -3,12 +3,12 @@
     include('database.php');
     
     session_start();
-    //$_SESSION['userID']="ccc";
 
     if(isset($_POST['signUp'])) signUp();
     if(isset($_POST['login'])) login();
     if(isset($_GET['logout'])) logout();
     if(isset($_POST['addBook'])) addBook();
+    if(isset($_POST['deleteBook'])) deleteBook();
 
     function signUp(){
         global $conn;
@@ -118,8 +118,9 @@
                 $publication_date = $row["publication_date"];
                 $price = $row["price"];
                 $description = $row["description"];
+                $id = $row["book_ID"];
 
-                $pr = "'".$title."','".$author."','".$genre."','".$price."','".$language."','".$publication_date."','".$description."'";
+                $pr = "'".$title."','".$author."','".$genre."','".$price."','".$language."','".$publication_date."','".$description."','".$id."','".$cover."'";
                 
                 echo 
                 '<div class="lg-col-3" style="width: 14rem;" data-bs-toggle="modal" data-bs-target="#bookInfo" onclick="bookInfo('.$pr.');">
@@ -143,4 +144,19 @@
         echo $num;
     } 
 
+    function deleteBook(){
+        global $conn;
+        extract($_POST);
+
+        $delete = "delete from book where book_ID = $bookId";
+        if (mysqli_query($conn, $delete)) {
+            $coverPath = "assets/img/covers/".$bookCover;
+            unlink($coverPath);
+            header("location: books.php");
+            $_SESSION['book_message'] = "The book has been deleted successfuly.";
+        } else {
+            header("location: books.php");
+            $_SESSION['book_message'] = "Something went wrong please try again.";
+        }
+    }
 ?>

@@ -77,21 +77,43 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header bg-cstm">
-                            <h1 class="modal-title fs-5 text-white" id="modal-title">Crime and Punishment</h1>
+                            <h1 class="modal-title fs-5 text-white" id="modal-title"></h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <p class="fw-bold">Author : <span class="fw-normal" id="modal-author">Fyodor Dostoevsky</span></p>
-                            <p class="fw-bold">Price : <span class="fw-normal" id="modal-price">13$</span></p>
-                            <p class="fw-bold">Language : <span class="fw-normal" id="modal-language">Russian</span></p>
-                            <p class="fw-bold">Genre : <span class="fw-normal" id="modal-genre">Literary fiction</span></p>
-                            <p class="fw-bold">Publication date : <span class="fw-normal" id="modal-publication-date">1866</span></p>
-                            <p class="fw-bold">Description : <span class="fw-normal" id="modal-description">Crime and Punishment is a novel by the Russian author Fyodor Dostoevsky. It was first published in the literary journal The Russian Messenger in twelve monthly installments during 1866. It was later published in a single volume.</span></p>
+                            <p class="fw-bold">Author : <span class="fw-normal" id="modal-author"></span></p>
+                            <p class="fw-bold">Price : <span class="fw-normal" id="modal-price"></span></p>
+                            <p class="fw-bold">Language : <span class="fw-normal" id="modal-language"></span></p>
+                            <p class="fw-bold">Genre : <span class="fw-normal" id="modal-genre"></span></p>
+                            <p class="fw-bold">Publication date : <span class="fw-normal" id="modal-publication-date"></span></p>
+                            <p class="fw-bold">Description : <span class="fw-normal" id="modal-description"></span></p>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="fa-regular fa-trash-can"></i> Delete</button>
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete-book-warning"><i class="fa-regular fa-trash-can"></i> Delete</button>
                             <button type="button" class="btn btn-cstm"><i class="fa-solid fa-pen-to-square"></i> Edit</button>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="delete-book-warning" tabindex="-1" aria-labelledby="delete-book-warning" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header bg-cstm">
+                            <h1 class="modal-title fs-5 text-white" id="warning">Warning</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p class="fs-3 fw-bold text-center">You are about to delete a book</p>
+                            <p class="text-center">This will delete the book from the library<br>Are you sure?</p>
+                        </div>
+                        <form action="main.php" method="POST">
+                            <input type="hidden" name="bookId" id="bookId" value="">
+                            <input type="hidden" name="bookCover" id="bookCover" value="">
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-cstm" data-bs-dismiss="modal">No</button>
+                                <button type="submit" class="btn btn-danger" name="deleteBook">Yes</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
