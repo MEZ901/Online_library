@@ -64,15 +64,7 @@
           <p class="text-center mx-3 mb-0">Books</p>
         </div>
         <div class="d-flex justify-content-around gap-3 overflow-hidden">
-          <div class="lg-col-3" style="width: 10rem;">
-            <img class="img-thumbnail" src="assets/img/Crime-And-Punishment.png" alt="Crime-And-Punishment">
-          </div>
-          <div class="lg-col-3" style="width: 10rem;">
-            <img class="img-thumbnail" src="assets/img/The-Prince.jpg" alt="The-Prince">
-          </div>
-          <div class="lg-col-3" style="width: 10rem;">
-            <img class="img-thumbnail" src="assets/img/Show-Your-Work.jpg" alt="Show-Your-Work">
-          </div>
+          <?php showBooks(1) ?>
           <a class="text-black text-decoration-none d-flex align-items-center justify-content-center" href="books.php">show all
             books ...</a>
         </div>

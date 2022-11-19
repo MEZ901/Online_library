@@ -68,31 +68,9 @@
                     <button type="button" class="btn-close" data-bs-dismiss="alert"></span>
                 </div>
 			<?php endif ?>
+
             <section class="d-flex justify-content-around flex-wrap gap-3 overflow-hidden my-3">
-                <div class="lg-col-3" style="width: 14rem;" data-bs-toggle="modal" data-bs-target="#bookInfo">
-                    <img class="img-thumbnail" src="assets/img/Crime-And-Punishment.png" alt="Crime-And-Punishment">
-                </div>
-                <div class="lg-col-3" style="width: 14rem;" data-bs-toggle="modal" data-bs-target="#bookInfo">
-                    <img class="img-thumbnail" src="assets/img/The-Prince.jpg" alt="The-Prince">
-                </div>
-                <div class="lg-col-3" style="width: 14rem;" data-bs-toggle="modal" data-bs-target="#bookInfo">
-                    <img class="img-thumbnail" src="assets/img/Show-Your-Work.jpg" alt="Show-Your-Work">
-                </div>
-                <div class="lg-col-3" style="width: 14rem;" data-bs-toggle="modal" data-bs-target="#bookInfo">
-                    <img class="img-thumbnail" src="assets/img/The-Brothers-Karamazov.jpg" alt="The-Brothers-Karamazov">
-                </div>
-                <div class="lg-col-3" style="width: 14rem;" data-bs-toggle="modal" data-bs-target="#bookInfo">
-                    <img class="img-thumbnail" src="assets/img/Gone-Girl.jpg" alt="Gone-Girl">
-                </div>
-                <div class="lg-col-3" style="width: 14rem;" data-bs-toggle="modal" data-bs-target="#bookInfo">
-                    <img class="img-thumbnail" src="assets/img/Harry-Potter.jpg" alt="Harry-Potter">
-                </div>
-                <div class="lg-col-3" style="width: 14rem;" data-bs-toggle="modal" data-bs-target="#bookInfo">
-                    <img class="img-thumbnail" src="assets/img/Meditations.jpg" alt="Meditations">
-                </div>
-                <div class="lg-col-3" style="width: 14rem;" data-bs-toggle="modal" data-bs-target="#bookInfo">
-                    <img class="img-thumbnail" src="assets/img/The-Travels-Of-Ibn-Battuta.jpg" alt="The-Travels-Of-Ibn-Battuta">
-                </div>
+                <?php showBooks(0) ?>
             </section>
 
             <div class="modal fade" id="bookInfo" tabindex="-1" aria-labelledby="bookInfo" aria-hidden="true">

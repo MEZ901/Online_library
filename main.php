@@ -46,7 +46,7 @@
             header('location: dashboard.php');
         }
         else {
-            $_SESSION['message'] = "Incorrect email address or password";
+            $_SESSION['message'] = "Incorrect emai or password";
             header('location: index.php#login');
         }
     }
@@ -77,7 +77,6 @@
                 move_uploaded_file($tmp_name, $img_upload_path);
 
                 $add = "insert into book (users_ID, title, cover, author, language, genre, publication_date, price, description) values ('$userID', '$bookTitle', '$new_img_name', '$bookAuthor', '$bookLanguage', '$bookGenre', '$bookPublicationDate', '$bookPrice', '$bookDescription')";
-                
                 $result = mysqli_query($conn, $add);
                 
                 if($result){
@@ -97,6 +96,30 @@
         }else{
             $_SESSION['book_message'] = "Unknown error occurred !";
             header('location: addbook.php');
+        }
+    }
+
+    function showBooks($pre){
+        global $conn;
+        extract($_POST);
+        $userID = $_SESSION['userID'];
+        
+        if($pre == 0) $sql = "select * from book where users_ID = $userID order by book_ID desc";
+        else $sql = "select * from book where users_ID = $userID order by book_ID desc limit 3";
+        $result = mysqli_query($conn, $sql);
+        $num = mysqli_num_rows($result);
+
+        if($num > 0){
+            while($row = $result->fetch_assoc()){
+                $cover = $row["cover"];
+                echo
+                '<div class="lg-col-3" style="width: 14rem;" data-bs-toggle="modal" data-bs-target="#bookInfo">
+                    <img class="img-thumbnail" src="assets/img/covers/'.$cover.'" alt="Crime-And-Punishment">
+                </div>';
+            }
+        }else{
+            if($pre == 0) echo "You didn't add any book yet.";
+            
         }
     }
 
