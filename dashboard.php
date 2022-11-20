@@ -28,9 +28,9 @@
   <div class="container">
     <header>
       <nav class="navbar navbar-expand-lg navbar-light bg-white justify-content-between">
-        <img class="logo mt-2 mb-2" src="assets/img/Logo.png" alt="logo">
+      <a href="dashboard.php" class="my-2" style="height:35px;width:125px"><img class="logo w-100 h-100" src="assets/img/Logo.png" alt="logo"></a>
         <ul class="navbar-nav d-flex flex-row">
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown mx-2">
             <a class="nav-link hidden-arrow" href="#" id="notificationToggle" role="button" data-mdb-toggle="dropdown"
               aria-expanded="false">
               <i class="fas fa-bell"></i>
@@ -45,7 +45,7 @@
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               <i class="fas fa-user"></i>
             </a>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu dropdown-menu-end">
               <li><a class="dropdown-item" href="settings.php">settings</a></li>
               <li>
                 <hr class="dropdown-divider">
