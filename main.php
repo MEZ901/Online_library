@@ -9,6 +9,7 @@
     if(isset($_GET['logout'])) logout();
     if(isset($_POST['addBook'])) addBook();
     if(isset($_POST['deleteBook'])) deleteBook();
+    if(isset($_POST['editBook'])) editBook();
 
     function signUp(){
         global $conn;
@@ -152,11 +153,59 @@
         if (mysqli_query($conn, $delete)) {
             $coverPath = "assets/img/covers/".$bookCover;
             unlink($coverPath);
-            header("location: books.php");
             $_SESSION['book_message'] = "The book has been deleted successfuly.";
-        } else {
             header("location: books.php");
+        } else {
             $_SESSION['book_message'] = "Something went wrong please try again.";
+            header("location: books.php");
         }
     }
+
+    function editBook(){
+        global $conn;
+        extract($_POST);
+
+        if($_FILES['cover']['name'] == ""){
+            $update = "update book set title='$bookTitle', language='$bookLanguage', publication_date='$bookPublicationDate', author='$bookAuthor', genre='$bookGenre', price='$bookPrice', description='$bookDescription' where book_ID='$bookId'";
+            mysqli_query($conn, $update);
+            $_SESSION['book_message'] = "The book has been updated successfuly.";
+            header("location: books.php");
+        }else{
+            $img_name = $_FILES['cover']['name'];
+            $tmp_name = $_FILES['cover']['tmp_name'];
+            $error = $_FILES['cover']['error'];
+
+            if($error === 0){
+                $img_ex = pathinfo($img_name, PATHINFO_EXTENSION);
+                $img_ex_lc = strtolower($img_ex);
+                $allowed_exs = array("jpg", "jpeg", "png");
+
+                if(in_array($img_ex_lc, $allowed_exs)){
+                    $new_img_name = uniqid("IMG-", true).'.'.$img_ex_lc;
+                    $img_upload_path = 'assets/img/covers/'.$new_img_name;
+                    move_uploaded_file($tmp_name, $img_upload_path);
+
+                    $update = "update book set title='$bookTitle', language='$bookLanguage', publication_date='$bookPublicationDate', author='$bookAuthor', genre='$bookGenre', price='$bookPrice', description='$bookDescription', cover='$new_img_name' where book_ID='$bookId'";
+                    $result = mysqli_query($conn, $update);
+                    
+                    if($result){
+                        $_SESSION['book_message'] = "The book has been added successfully !";
+                        header('location: books.php');
+                    }else{
+                        $_SESSION['book_message'] = "Something went wrong please try again";
+                        header('location: addBook.php');
+                    }
+                    
+                    
+                }else{
+                    $_SESSION['book_message'] = "You can't upload this type of files in cover";
+                    header('location: addBook.php');
+                }
+
+            }else{
+                $_SESSION['book_message'] = "Unknown error occurred !";
+                header('location: addBook.php');
+            }
+        }
+    } 
 ?>

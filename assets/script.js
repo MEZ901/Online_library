@@ -38,17 +38,19 @@ function get_id(id)
   return id;
 }
 
-document.getElementById("cstmCover").addEventListener("click", ()=>{
+document.getElementById("cstmCover").addEventListener("click", function(){
   document.getElementById("cover").click()
 })
 
 document.getElementById("cover").addEventListener("change", function(){
+  const img = document.getElementById("cstmCover");
   const file = this.files[0];
-  reader.onload = function(){
-    const result = reader.result;
-    img.src = result;
-    console.log('gggg')
-    console.log(result)
+  if(file){
+    const reader = new FileReader;
+    reader.onload = function(){
+      const result = reader.result;
+      img.src = result;
+    }
+    reader.readAsDataURL(file)
   }
-  reader.readAsDataURL(file)
 })

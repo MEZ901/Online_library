@@ -47,7 +47,7 @@
                       <i class="fas fa-user"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end">
-                      <li><a class="dropdown-item" href="settings.html">settings</a></li>
+                      <li><a class="dropdown-item" href="settings.php">settings</a></li>
                       <li>
                         <hr class="dropdown-divider">
                       </li>
@@ -89,59 +89,70 @@
                     }
                 ?>
                 <form action="main.php" method="POST" enctype="multipart/form-data">
-                    <div class="d-block d-md-flex justify-content-between gap-5">
-                        <div class="leftSide w-100 w-md-50">
-                            <div class="mb-3">
-                                <label for="title" class="form-label">Title:</label>
-                                <input name="bookTitle" type="text" class="form-control" id="title" value="<?= $title ?>">
-                            </div>
-                            <div class="mb-3">
-                                <label for="Language" class="form-label">Language:</label>
-                                <input name="bookLanguage" type="text" class="form-control" id="Language" value="<?= $language ?>">
-                            </div>
-                            <div class="mb-3">
-                                <label for="genre" class="form-label">Genre:</label>
-                                <input name="bookGenre" type="text" class="form-control" id="genre" value="<?= $genre ?>">
-                            </div>
-                            <div class="mb-3">
-                                <label for="publicationDate" class="form-label">Publication date:</label>
-                                <input name="bookPublicationDate" type="number" class="form-control" id="publicationDate" value="<?= $publication_date ?>">
-                            </div>
-                            <div class="mb-3">
-                                <label for="price" class="form-label">Price:</label>
-                                <input name="bookPrice" type="number" min="0" max="10000" class="form-control" id="price" value="<?= $price ?>">
-                            </div>
+                    <div class="d-flex align-items-center  m-auto gap-3" style="width: 60%;">
+                        <!-- cover -->
+                        <div class="" style="width: 45%; cursor: pointer;">
+                            <img id="cstmCover" class="img-thumbnail" src="assets/img/covers/<?= $cover ?>" alt="add cover">
                         </div>
+                        <!-- inputs -->
+                        <input type="hidden" name="bookId" value="<?= $id ?>">
+                        <input name="cover" type="file" class="form-control" id="cover" value="assets/img/covers/<?= $cover ?>" hidden>
+                        <div class=" p-3 rounded shadow border" style="width: 55%">
+                            <div class="d-block d-md-flex justify-content-between gap-3">
+                                <!-- left side -->
+                                <div class="w-100 w-md-50">
+                                    <div class="mb-3">
+                                        <label for="title" class="form-label">Title:</label>
+                                        <input name="bookTitle" type="text" class="form-control" id="title" value="<?= $title ?>">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="Language" class="form-label">Language:</label>
+                                        <input name="bookLanguage" type="text" class="form-control" id="Language" value="<?= $language ?>">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="publicationDate" class="form-label">Publication date:</label>
+                                        <input name="bookPublicationDate" type="number" class="form-control" id="publicationDate" value="<?= $publication_date ?>">
+                                    </div>
+                                </div>
 
-                        <div class="rightSide w-100 w-md-50">
-                            <div class="mb-3">
-                                <label for="cover" class="form-label">Cover:</label>
-                                <input name="cover" type="file" class="form-control" id="cover" value="<?= $cover ?>">
+                                <!-- right side -->
+                                <div class="w-100 w-md-50">
+                                    <div class="mb-3">
+                                        <label for="author" class="form-label">Author:</label>
+                                        <input name="bookAuthor" type="text" class="form-control" id="author" value="<?= $author ?>">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="genre" class="form-label">Genre:</label>
+                                        <input name="bookGenre" type="text" class="form-control" id="genre" value="<?= $genre ?>">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="price" class="form-label">Price:</label>
+                                        <input name="bookPrice" type="number" min="0" max="10000" class="form-control" id="price" value="<?= $price ?>">
+                                    </div>
+                                </div>
                             </div>
-                            <div class="mb-3">
-                                <label for="author" class="form-label">Author:</label>
-                                <input name="bookAuthor" type="text" class="form-control" id="author" value="<?= $author ?>">
-                            </div>
+
                             <div class="mb-3">
                                 <label for="description" class="form-label">Description:</label>
-                                <textarea name="bookDescription" id="description" class="form-control" aria-label="With textarea" rows="8" ><?= $description ?></textarea>
+                                <textarea name="bookDescription" id="description" class="form-control" aria-label="With textarea" rows="3"><?= $description ?></textarea>
                             </div>
                         </div>
                     </div>
-                    <div class="mb-2">
-                        <button type="submit" name="addBook" class="btn btn-cstm" style="--bs-btn-padding-y: 0.5rem; --bs-btn-padding-x: 2.5rem; --bs-btn-font-size: 1rem;">Update</button>
-                        <button type="button" class="btn btn-danger" style=" --bs-btn-padding-y: 0.5rem; --bs-btn-padding-x: 2rem; --bs-btn-font-size: 1rem;" onclick="window.location.href='books.html';">Cancel</button>
+
+                    <div class="my-3 d-flex justify-content-center gap-3">
+                        <button type="submit" name="editBook" class="btn btn-cstm" style="--bs-btn-padding-y: 0.5rem; --bs-btn-padding-x: 2.5rem; --bs-btn-font-size: 1rem;">Update</button>
+                        <button type="button" class="btn btn-danger" style=" --bs-btn-padding-y: 0.5rem; --bs-btn-padding-x: 2rem; --bs-btn-font-size: 1rem;" onclick="window.location.href='books.php';">Cancel</button>
                     </div>
-                </form>            
+                </form>          
             <?php else : ?>
                 <form action="main.php" method="POST" enctype="multipart/form-data">
-                    <div class="d-flex align-items-center  m-auto gap-3 overflow-hidden" style="width: 60%">
+                    <div class="d-flex align-items-center  m-auto gap-3" style="width: 60%;">
                         <!-- cover -->
-                        <div style="width: 45%; cursor: pointer;">
+                        <div class="" style="width: 45%; cursor: pointer;">
                             <img id="cstmCover" class="img-thumbnail" src="assets/img/custom-book-cover" alt="add cover">
                         </div>
                         <!-- inputs -->
-                        <div class="bg-cstm p-3 rounded shadow" style="width: 55%">
+                        <div class=" p-3 rounded shadow border" style="width: 55%">
                             <div class="d-block d-md-flex justify-content-between gap-3">
                                 <!-- left side -->
                                 <div class="w-100 w-md-50">
@@ -186,7 +197,7 @@
 
                     <div class="my-3 d-flex justify-content-center gap-3">
                         <button type="submit" name="addBook" class="btn btn-cstm" style="--bs-btn-padding-y: 0.5rem; --bs-btn-padding-x: 2.5rem; --bs-btn-font-size: 1rem;">Add</button>
-                        <button type="button" class="btn btn-danger" style=" --bs-btn-padding-y: 0.5rem; --bs-btn-padding-x: 2rem; --bs-btn-font-size: 1rem;" onclick="window.location.href='books.html';">Cancel</button>
+                        <button type="button" class="btn btn-danger" style=" --bs-btn-padding-y: 0.5rem; --bs-btn-padding-x: 2rem; --bs-btn-font-size: 1rem;" onclick="window.location.href='books.php';">Cancel</button>
                     </div>
                 </form>
             <?php endif ;?>

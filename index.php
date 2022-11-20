@@ -25,7 +25,7 @@
   <div class="container">
     <header id="home">
       <nav class="d-flex justify-content-between bg-white" id="navbar">
-        <img class="logo mt-2 mb-2" src="assets/img/Logo.png" alt="Logo" />
+        <img class="logo mt-2 mb-2" src="assets/img/Logo.png" alt="Logo" style="width: 15%;"/>
         <div class="w-25 mt-2 mb-2">
           <ul class="d-flex justify-content-around w-100 list-unstyled mb-0">
             <li>
