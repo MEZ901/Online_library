@@ -87,6 +87,7 @@
                         $price = $row["price"];
                         $description = $row["description"];
                     }
+                    $_SESSION['tmpBookCover'] = $cover;
                 ?>
                 <form action="main.php" method="POST" enctype="multipart/form-data">
                     <div class="d-flex align-items-center  m-auto gap-3" style="width: 60%;">

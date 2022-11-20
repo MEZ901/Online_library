@@ -70,7 +70,7 @@
         if($error === 0){
             $img_ex = pathinfo($img_name, PATHINFO_EXTENSION);
             $img_ex_lc = strtolower($img_ex);
-            $allowed_exs = array("jpg", "jpeg", "png");
+            $allowed_exs = array("jpg", "jpeg", "jfif", "pjpeg", "pjp", "png", "svg", "webp");
 
             if(in_array($img_ex_lc, $allowed_exs)){
                 $new_img_name = uniqid("IMG-", true).'.'.$img_ex_lc;
@@ -178,14 +178,14 @@
             if($error === 0){
                 $img_ex = pathinfo($img_name, PATHINFO_EXTENSION);
                 $img_ex_lc = strtolower($img_ex);
-                $allowed_exs = array("jpg", "jpeg", "png");
+                $allowed_exs = array("jpg", "jpeg", "jfif", "pjpeg", "pjp", "png", "svg", "webp");
 
                 if(in_array($img_ex_lc, $allowed_exs)){
-                    $new_img_name = uniqid("IMG-", true).'.'.$img_ex_lc;
-                    $img_upload_path = 'assets/img/covers/'.$new_img_name;
+                    $cover_name = $_SESSION['tmpBookCover'];
+                    $img_upload_path = 'assets/img/covers/'.$cover_name;
                     move_uploaded_file($tmp_name, $img_upload_path);
 
-                    $update = "update book set title='$bookTitle', language='$bookLanguage', publication_date='$bookPublicationDate', author='$bookAuthor', genre='$bookGenre', price='$bookPrice', description='$bookDescription', cover='$new_img_name' where book_ID='$bookId'";
+                    $update = "update book set title='$bookTitle', language='$bookLanguage', publication_date='$bookPublicationDate', author='$bookAuthor', genre='$bookGenre', price='$bookPrice', description='$bookDescription', cover='$cover_name' where book_ID='$bookId'";
                     $result = mysqli_query($conn, $update);
                     
                     if($result){
@@ -199,7 +199,7 @@
                     
                 }else{
                     $_SESSION['book_message'] = "You can't upload this type of files in cover";
-                    header('location: addBook.php');
+                    header("location: addBook.php?id=$bookId");
                 }
 
             }else{
