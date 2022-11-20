@@ -1,5 +1,3 @@
-window.onscroll = function() {scrollFunction()};
-
 function scrollFunction() {
   if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
     document.getElementById("navbar").style.top = "0";
@@ -28,4 +26,16 @@ function bookInfo(title,author,genre,price,language,publicationDate,description,
   document.getElementById("modal-description").innerHTML = description;
   document.getElementById("bookId").value = id;
   document.getElementById("bookCover").value = cover;
+  document.querySelector('.button-edit-book').id=id;
+  console.log(document.querySelector('.button-edit-book').id)
+  get_id(id);
+
+  
+}
+function get_id(id)
+{
+  return id;
+}
+function editJs(){
+  
 }

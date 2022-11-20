@@ -88,10 +88,12 @@
                             <p class="fw-bold">Publication date : <span class="fw-normal" id="modal-publication-date"></span></p>
                             <p class="fw-bold">Description : <span class="fw-normal" id="modal-description"></span></p>
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete-book-warning"><i class="fa-regular fa-trash-can"></i> Delete</button>
-                            <button type="button" class="btn btn-cstm"><i class="fa-solid fa-pen-to-square"></i> Edit</button>
-                        </div>
+                        <form action="main.php" method="POST">
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete-book-warning"><i class="fa-regular fa-trash-can"></i> Delete</button>
+                                <button id="" type="button" class="btn btn-cstm button-edit-book" onclick="window.location.href=`addBook.php?id=${get_id(this.id)}`"><i class="fa-solid fa-pen-to-square"></i> Edit</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

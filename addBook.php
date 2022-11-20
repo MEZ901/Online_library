@@ -1,6 +1,7 @@
 <?php
   include('main.php');
   if(!isset($_SESSION['firstName'])) header('location: index.php');
+  $pageTitle=isset($_GET['id']) ? 'Edit book' : 'Add book';
 ?>
 
 <!DOCTYPE html>
@@ -55,11 +56,10 @@
                   </li>
                 </ul>
             </nav>
-            <h2 class="text-center fw-bold">Add book</h2>
+            <h2 class="text-center fw-bold" id="pageTitle"><?=$pageTitle?></h2>
         </header>
         <main>
-            <section>
-                <?php if (isset($_SESSION['book_message'])): ?>
+            <?php if (isset($_SESSION['book_message'])): ?>
                     <div class="alert alert-warning alert-dismissible fade show">
                         <strong>Sorry!</strong>
                         <?php 
@@ -68,44 +68,109 @@
                         ?>
                         <button type="button" class="btn-close" data-bs-dismiss="alert"></span>
                     </div>
-			    <?php endif ?>
+			<?php endif ?>
+            
+            <?php if(isset($_GET['id'])):?>
+                <?php
+                    global $conn;
+                    $id = $_GET["id"];
+                    $sql = "select * from book where book_ID = $id";
+                    $result = mysqli_query($conn, $sql);
+
+                    while($row = $result->fetch_assoc()){
+                        $cover = $row["cover"];
+                        $title = $row['title'];
+                        $author = $row["author"];
+                        $language = $row["language"];
+                        $genre = $row["genre"];
+                        $publication_date = $row["publication_date"];
+                        $price = $row["price"];
+                        $description = $row["description"];
+                    }
+                ?>
                 <form action="main.php" method="POST" enctype="multipart/form-data">
                     <div class="d-block d-md-flex justify-content-between gap-5">
                         <div class="leftSide w-100 w-md-50">
                             <div class="mb-3">
                                 <label for="title" class="form-label">Title:</label>
-                                <input name="bookTitle" type="text" class="form-control" id="title">
+                                <input name="bookTitle" type="text" class="form-control" id="title" value="<?= $title ?>">
                             </div>
                             <div class="mb-3">
                                 <label for="Language" class="form-label">Language:</label>
-                                <input name="bookLanguage" type="text" class="form-control" id="Language">
+                                <input name="bookLanguage" type="text" class="form-control" id="Language" value="<?= $language ?>">
                             </div>
                             <div class="mb-3">
                                 <label for="genre" class="form-label">Genre:</label>
-                                <input name="bookGenre" type="text" class="form-control" id="genre">
+                                <input name="bookGenre" type="text" class="form-control" id="genre" value="<?= $genre ?>">
                             </div>
                             <div class="mb-3">
                                 <label for="publicationDate" class="form-label">Publication date:</label>
-                                <input name="bookPublicationDate" type="number" class="form-control" id="publicationDate">
+                                <input name="bookPublicationDate" type="number" class="form-control" id="publicationDate" value="<?= $publication_date ?>">
                             </div>
                             <div class="mb-3">
                                 <label for="price" class="form-label">Price:</label>
-                                <input name="bookPrice" type="number" min="0" max="10000" class="form-control" id="price">
+                                <input name="bookPrice" type="number" min="0" max="10000" class="form-control" id="price" value="<?= $price ?>">
                             </div>
                         </div>
 
                         <div class="rightSide w-100 w-md-50">
                             <div class="mb-3">
                                 <label for="cover" class="form-label">Cover:</label>
-                                <input name="cover" type="file" class="form-control" id="cover">
+                                <input name="cover" type="file" class="form-control" id="cover" value="<?= $cover ?>">
                             </div>
                             <div class="mb-3">
                                 <label for="author" class="form-label">Author:</label>
-                                <input name="bookAuthor" type="text" class="form-control" id="author">
+                                <input name="bookAuthor" type="text" class="form-control" id="author" value="<?= $author ?>">
                             </div>
                             <div class="mb-3">
                                 <label for="description" class="form-label">Description:</label>
-                                <textarea name="bookDescription" id="description" class="form-control" aria-label="With textarea" rows="8"></textarea>
+                                <textarea name="bookDescription" id="description" class="form-control" aria-label="With textarea" rows="8" ><?= $description ?></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <button type="submit" name="addBook" class="btn btn-cstm" style="--bs-btn-padding-y: 0.5rem; --bs-btn-padding-x: 2.5rem; --bs-btn-font-size: 1rem;">Update</button>
+                        <button type="button" class="btn btn-danger" style=" --bs-btn-padding-y: 0.5rem; --bs-btn-padding-x: 2rem; --bs-btn-font-size: 1rem;" onclick="window.location.href='books.html';">Cancel</button>
+                    </div>
+                </form>            
+            <?php else : ?>
+                <form action="main.php" method="POST" enctype="multipart/form-data">
+                    <div class="d-block d-md-flex justify-content-between gap-5">
+                        <div class="leftSide w-100 w-md-50">
+                            <div class="mb-3">
+                                <label for="title" class="form-label">Title:</label>
+                                <input name="bookTitle" type="text" class="form-control" id="title" value="">
+                            </div>
+                            <div class="mb-3">
+                                <label for="Language" class="form-label">Language:</label>
+                                <input name="bookLanguage" type="text" class="form-control" id="Language" value="">
+                            </div>
+                            <div class="mb-3">
+                                <label for="genre" class="form-label">Genre:</label>
+                                <input name="bookGenre" type="text" class="form-control" id="genre" value="">
+                            </div>
+                            <div class="mb-3">
+                                <label for="publicationDate" class="form-label">Publication date:</label>
+                                <input name="bookPublicationDate" type="number" class="form-control" id="publicationDate" value="">
+                            </div>
+                            <div class="mb-3">
+                                <label for="price" class="form-label">Price:</label>
+                                <input name="bookPrice" type="number" min="0" max="10000" class="form-control" id="price" value="">
+                            </div>
+                        </div>
+
+                        <div class="rightSide w-100 w-md-50">
+                            <div class="mb-3">
+                                <label for="cover" class="form-label">Cover:</label>
+                                <input name="cover" type="file" class="form-control" id="cover" value="">
+                            </div>
+                            <div class="mb-3">
+                                <label for="author" class="form-label">Author:</label>
+                                <input name="bookAuthor" type="text" class="form-control" id="author" value="">
+                            </div>
+                            <div class="mb-3">
+                                <label for="description" class="form-label">Description:</label>
+                                <textarea name="bookDescription" id="description" class="form-control" aria-label="With textarea" rows="8" value=""></textarea>
                             </div>
                         </div>
                     </div>
@@ -114,8 +179,7 @@
                         <button type="button" class="btn btn-danger" style=" --bs-btn-padding-y: 0.5rem; --bs-btn-padding-x: 2rem; --bs-btn-font-size: 1rem;" onclick="window.location.href='books.html';">Cancel</button>
                     </div>
                 </form>
-            </section>
-            
+            <?php endif ;?>
         </main>
 
     </div>
