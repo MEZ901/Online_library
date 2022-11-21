@@ -103,7 +103,7 @@
               <img src="assets/img/img3.png" class="img-fluid d-none d-lg-block" alt="cover" />
             </div>
             <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-              <form action="main.php" method="POST">
+              <form action="main.php" method="POST" name="loginForm">
                 <div class="d-flex align-items-center justify-content-center justify-content-lg-center">
                   <p class="fs-2 fw-bold mb-0 me-3 text-cstm">Login</p>
                 </div>
@@ -123,10 +123,14 @@
                     <button type="button" class="btn-close" data-bs-dismiss="alert"></span>
                   </div>
 			          <?php endif ?>
-                <div class="form-floating mb-4">
-                  <input name="loginEmail" type="email" id="loginEmail" class="form-control form-control-lg"
+                <div class="form-floating mb-4 position-relative">
+                  <input onkeyup="loginChecker()" name="loginEmail" type="email" id="loginEmail" class="form-control form-control-lg"
                     placeholder="Enter a valid email address" />
                   <label class="form-label text-muted" for="loginEmail">Email address</label>
+                  <div class="icons position-absolute" style="top:20%; right:15px;">
+                    <span><i class="invalid bi bi-exclamation-circle text-danger fs-4" style="display:none;"></i></i></span>
+                    <span><i class="valid bi bi-check-circle text-success fs-4" style="display:none;"></i></span>
+                  </div>
                 </div>
 
                 <div class="form-floating mb-3">
@@ -146,7 +150,7 @@
                 </div>
 
                 <div class="text-center text-lg-start mt-3 pt-2">
-                  <button name="login" type="submit" class="btn btn-cstm shadow" style="padding-left: 1.5rem; padding-right: 1.5rem">
+                  <button name="login" type="submit" class="btn btn-cstm shadow" style="padding-left: 1.5rem; padding-right: 1.5rem" disabled>
                     LOGIN
                   </button>
                   <p class="small mt-2 pt-1 mb-0">

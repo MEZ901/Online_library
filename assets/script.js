@@ -27,30 +27,57 @@ function bookInfo(title,author,genre,price,language,publicationDate,description,
   document.getElementById("bookId").value = id;
   document.getElementById("bookCover").value = cover;
   document.querySelector('.button-edit-book').id=id;
-  console.log(document.querySelector('.button-edit-book').id)
   get_id(id);
-
-  
 }
 
-function get_id(id)
-{
+function get_id(id){
   return id;
 }
 
-document.getElementById("cstmCover").addEventListener("click", function(){
-  document.getElementById("cover").click()
-})
+if(typeof document.getElementById("cstmCover") !== 'undefined' && document.getElementById("cstmCover") !== null){
+  document.getElementById("cstmCover").addEventListener("click", function(){
+    document.getElementById("cover").click()
+  })
 
-document.getElementById("cover").addEventListener("change", function(){
-  const img = document.getElementById("cstmCover");
-  const file = this.files[0];
-  if(file){
-    const reader = new FileReader;
-    reader.onload = function(){
-      const result = reader.result;
-      img.src = result;
+
+  document.getElementById("cover").addEventListener("change", function(){
+    const img = document.getElementById("cstmCover");
+    const file = this.files[0];
+    if(file){
+      const reader = new FileReader;
+      reader.onload = function(){
+        const result = reader.result;
+        img.src = result;
+      }
+      reader.readAsDataURL(file);
     }
-    reader.readAsDataURL(file)
+  })
+}
+
+if(typeof document.forms["loginForm"] !== 'undefined' && document.forms["loginForm"] !== null){
+  const email = document.querySelector("#loginEmail");
+  const invalidIcon = document.querySelector(".invalid");
+  const validIcon = document.querySelector(".valid");
+  const loginBtn = document.querySelector("[name='login']");
+  
+  let mailFormat =  /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  function loginChecker(){
+    if(email.value.match(mailFormat)){
+      email.style.borderColor = "#27ae60";
+      invalidIcon.style.display = "none";
+      validIcon.style.display = "block";
+      loginBtn.removeAttribute("disabled");
+    }else{
+      email.style.borderColor = "#e74c3c";
+      invalidIcon.style.display = "block";
+      validIcon.style.display = "none";
+      loginBtn.setAttribute('disabled', '');
+    }
+    if(email.value == ""){
+      email.style.borderColor = "lightgrey";
+      invalidIcon.style.display = "none";
+      validIcon.style.display = "none";
+      loginBtn.setAttribute('disabled', '');
+    }
   }
-})
+}
