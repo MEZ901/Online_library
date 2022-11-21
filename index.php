@@ -103,7 +103,9 @@
               <img src="assets/img/img3.png" class="img-fluid d-none d-lg-block" alt="cover" />
             </div>
             <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+
               <form action="main.php" method="POST" name="loginForm">
+
                 <div class="d-flex align-items-center justify-content-center justify-content-lg-center">
                   <p class="fs-2 fw-bold mb-0 me-3 text-cstm">Login</p>
                 </div>
@@ -113,6 +115,7 @@
                     welcome back!
                   </p>
                 </div>
+                
                 <?php if (isset($_SESSION['message'])): ?>
                   <div class="alert alert-warning alert-dismissible fade show">
                     <strong>Sorry!</strong>
@@ -123,6 +126,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="alert"></span>
                   </div>
 			          <?php endif ?>
+
                 <div class="form-floating mb-4 position-relative">
                   <input onkeyup="loginChecker()" name="loginEmail" type="email" id="loginEmail" class="form-control form-control-lg"
                     placeholder="Enter a valid email address" />
@@ -175,50 +179,66 @@
                   <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
                     <p class="text-center text-cstm fs-2 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
 
-                    <form action="main.php" method="POST" class="mx-1 mx-md-4">
+                    <form action="main.php" method="POST" class="mx-1 mx-md-4" name="signUpForm">
 
                       <div class="d-flex gap-2">
                         <div class="d-flex flex-row align-items-center mb-4">
                           <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                           <div class="form-floating flex-fill mb-0">
-                            <input name="fname" type="text" id="fname" class="form-control" placeholder="First Name" />
+                            <input onkeyup="fnameChecker()" name="fname" type="text" id="fname" class="form-control" placeholder="First Name" />
                             <label class="form-label text-muted" for="fname">First Name</label>
                           </div>
                         </div>
 
                         <div class="form-floating flex-fill mb-0">
-                          <input name="lname" type="text" id="lname" class="form-control" placeholder="Last Name" />
+                          <input onkeyup="lnameChecker()" name="lname" type="text" id="lname" class="form-control" placeholder="Last Name" />
                           <label class="form-label text-muted" for="lname">Last Name</label>
                         </div>
                       </div>
 
                       <div class="d-flex flex-row align-items-center mb-4">
                         <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
-                        <div class="form-floating flex-fill mb-0">
-                          <input name="email" type="email" id="email" class="form-control" placeholder="Your Email" />
+                        <div class="form-floating flex-fill mb-0 position relative">
+                          <input onkeyup="emailChecker()" name="email" type="email" id="email" class="form-control" placeholder="Your Email" />
                           <label class="form-label text-muted" for="email">Your Email</label>
+                          <div class="icons position-absolute" style="top:20%; right:15px;">
+                            <span><i class="Invalid bi bi-exclamation-circle text-danger fs-4" style="display:none;"></i></i></span>
+                            <span><i class="Valid bi bi-check-circle text-success fs-4" style="display:none;"></i></span>
+                          </div>
                         </div>
                       </div>
 
                       <div class="d-flex flex-row align-items-center mb-4">
                         <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
-                        <div class="form-floating flex-fill mb-0">
-                          <input name="password" type="password" id="password" class="form-control" placeholder="Password" />
-                          <label class="form-label text-muted" for="password">Password</label>
+                        <div>
+                          <div class="form-floating flex-fill mb-0">
+                            <input onkeyup="passwordChecker();" name="password" type="password" id="password" class="form-control" placeholder="Password" />
+                            <label class="form-label text-muted" for="password">Password</label>
+                          </div>
+                          <div class="passwordIndicator align-items-center justify-content-between" style="height: 10px; margin: 10px 0; display: none;">
+                            <span class="weak w-100 h-100 rounded position-relative" style="background: lightgrey;"></span>
+                            <span class="medium w-100 h-100 rounded position-relative" style="background: lightgrey; margin: 0 3px;"></span>
+                            <span class="strong w-100 h-100 rounded position-relative" style="background: lightgrey;"></span>
+                          </div>
+                          <div class="text text-center " style="margin-button: -10px; display: none"></div>
                         </div>
                       </div>
 
                       <div class="d-flex flex-row align-items-center mb-2">
                         <i class="fas fa-key fa-lg me-3 fa-fw"></i>
-                        <div class="form-floating flex-fill mb-0">
-                          <input name="repeatPassword" type="password" id="repeatPassword" class="form-control" placeholder="Repeat your password" />
+                        <div class="form-floating flex-fill mb-0 position-relative">
+                          <input onkeyup="repeatPasswordChecker()" name="repeatPassword" type="password" id="repeatPassword" class="form-control" placeholder="Repeat your password" />
                           <label class="form-label text-muted" for="repeatPassword">Repeat your password</label>
+                          <div class="icons position-absolute" style="top:20%; right:15px;">
+                            <span><i class="InvalidP bi bi-exclamation-circle text-danger fs-4" style="display:none;"></i></i></span>
+                            <span><i class="ValidP bi bi-check-circle text-success fs-4" style="display:none;"></i></span>
+                          </div>
                         </div>
                       </div>
 
                       <div class="text-center text-lg-start mt-3 pt-2">
                         <button name="signUp" type="submit" class="btn btn-cstm shadow"
-                          style="padding-left: 1.5rem; padding-right: 1.5rem;">
+                          style="padding-left: 1.5rem; padding-right: 1.5rem;" disabled>
                           Sign up
                         </button>
                         <p class="small mt-2 pt-1 mb-0">
