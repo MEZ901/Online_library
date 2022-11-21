@@ -210,7 +210,7 @@
 
                       <div class="d-flex flex-row align-items-center mb-4">
                         <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
-                        <div>
+                        <div class="w-100">
                           <div class="form-floating flex-fill mb-0">
                             <input onkeyup="passwordChecker();" name="password" type="password" id="password" class="form-control" placeholder="Password" />
                             <label class="form-label text-muted" for="password">Password</label>
