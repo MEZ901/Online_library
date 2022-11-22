@@ -90,15 +90,15 @@
                     $_SESSION['tmpBookCover'] = $cover;
                 ?>
                 <form action="main.php" method="POST" enctype="multipart/form-data">
-                    <div class="d-flex align-items-center  m-auto gap-3" style="width: 60%;">
+                    <div class="d-flex flex-column flex-md-row align-items-center  m-auto gap-3" style="width: 60%;">
                         <!-- cover -->
-                        <div class="" style="width: 45%; cursor: pointer;">
+                        <div class="w-100 w-md-50" style="cursor: pointer;">
                             <img id="cstmCover" class="img-thumbnail" src="assets/img/covers/<?= $cover ?>" alt="add cover">
                         </div>
                         <!-- inputs -->
                         <input type="hidden" name="bookId" value="<?= $id ?>">
                         <input name="cover" type="file" class="form-control" id="cover" value="assets/img/covers/<?= $cover ?>" hidden>
-                        <div class=" p-3 rounded shadow border" style="width: 55%">
+                        <div class="p-3 rounded shadow border w-100 w-md-50">
                             <div class="d-block d-md-flex justify-content-between gap-3">
                                 <!-- left side -->
                                 <div class="w-100 w-md-50">
@@ -147,13 +147,13 @@
                 </form>          
             <?php else : ?>
                 <form action="main.php" method="POST" enctype="multipart/form-data">
-                    <div class="d-flex align-items-center  m-auto gap-3" style="width: 60%;">
+                    <div class="d-flex flex-column flex-md-row align-items-center  m-auto gap-3" style="width: 60%;">
                         <!-- cover -->
-                        <div class="" style="width: 45%; cursor: pointer;">
+                        <div class="w-100 w-md-50" style="cursor: pointer;">
                             <img id="cstmCover" class="img-thumbnail" src="assets/img/custom-book-cover" alt="add cover">
                         </div>
                         <!-- inputs -->
-                        <div class=" p-3 rounded shadow border" style="width: 55%">
+                        <div class="p-3 rounded shadow border w-100 w-md-50">
                             <div class="d-block d-md-flex justify-content-between gap-3">
                                 <!-- left side -->
                                 <div class="w-100 w-md-50">
