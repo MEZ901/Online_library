@@ -44,13 +44,13 @@
                                                 <div class="d-flex flex-row align-items-center mb-4">
                                                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                                                     <div class="form-floating flex-fill mb-0">
-                                                        <input type="text" id="settings-fname" class="form-control" placeholder="First Name" />
+                                                        <input name="newFname" type="text" id="settings-fname" class="form-control" placeholder="First Name" value="<?= $_SESSION['firstName'] ?>" />
                                                         <label class="form-label text-muted" for="settings-fname">First Name</label>
                                                     </div>
                                                 </div>
 
                                                 <div class="form-floating flex-fill mb-0">
-                                                    <input type="text" i d="settings-lname" class="form-control" placeholder="Last Name" />
+                                                    <input name="newLname" type="text" i d="settings-lname" class="form-control" placeholder="Last Name" value="<?= $_SESSION['lastName'] ?>" />
                                                     <label class="form-label text-muted" for="settings-lname">Last Name</label>
                                                 </div>
                                             </div>
@@ -58,7 +58,7 @@
                                             <div class="d-flex flex-row align-items-center mb-4">
                                                 <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                                                 <div class="form-floating flex-fill mb-0">
-                                                    <input type="email" id="settings-email" class="form-control" placeholder="Your Email" />
+                                                    <input name="newEmail" type="email" id="settings-email" class="form-control" placeholder="Your Email" value="<?= $_SESSION['email'] ?>" />
                                                     <label class="form-label text-muted" for="settings-email">Your Email</label>
                                                 </div>
                                             </div>
@@ -66,7 +66,7 @@
                                             <div class="d-flex flex-row align-items-center mb-4">
                                                 <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                                                 <div class="form-floating flex-fill mb-0">
-                                                    <input type="password" id="settings-password" class="form-control" placeholder="Password" />
+                                                    <input name="newPassword" type="password" id="settings-password" class="form-control" placeholder="Password" value="<?= $_SESSION['password'] ?>" />
                                                     <label class="form-label text-muted" for="settings-password">Password</label>
                                                 </div>
                                             </div>
@@ -98,22 +98,24 @@
                 </div>
             </section>
             <div class="modal fade" id="delete-account-warning" tabindex="-1" aria-labelledby="delete-account-warning" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header bg-cstm">
-                            <h1 class="modal-title fs-5 text-white" id="warning">Warning</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <p class="fs-3 fw-bold text-center">Whoa, there!</p>
-                            <p class="text-center">Once you delete your account, there's no gitting it back.<br> Make sure you want to do this.</p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-cstm" data-bs-dismiss="modal">No</button>
-                            <button type="button" class="btn btn-danger">Yes</button>
+                <form action="main.php" method="POST">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header bg-cstm">
+                                <h1 class="modal-title fs-5 text-white" id="warning">Warning</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p class="fs-3 fw-bold text-center">Whoa, there!</p>
+                                <p class="text-center">Once you delete your account, there's no gitting it back.<br> Make sure you want to do this.</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-cstm" data-bs-dismiss="modal">No</button>
+                                <button name="removeAccount" type="submit" class="btn btn-danger">Yes</button>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
         </main>
 

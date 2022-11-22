@@ -4,12 +4,13 @@
     
     session_start();
 
-    if(isset($_POST['signUp'])) signUp();
-    if(isset($_POST['login'])) login();
-    if(isset($_GET['logout'])) logout();
-    if(isset($_POST['addBook'])) addBook();
-    if(isset($_POST['deleteBook'])) deleteBook();
-    if(isset($_POST['editBook'])) editBook();
+    if(isset($_POST['signUp']))           signUp();
+    if(isset($_POST['login']))            login();
+    if(isset($_GET['logout']))            logout();
+    if(isset($_POST['addBook']))          addBook();
+    if(isset($_POST['deleteBook']))       deleteBook();
+    if(isset($_POST['editBook']))         editBook();
+    if(isset($_POST['removeAccount']))   removeAccount();
 
     function signUp(){
         global $conn;
@@ -207,5 +208,22 @@
                 header('location: addBook.php');
             }
         }
-    } 
+    }
+
+    function removeAccount(){
+        global $conn;
+        $id = $_SESSION['userID'];
+
+        $query = "delete from user where user_ID = $id";
+        $result = mysqli_query($conn, $query);
+        if ($result) {
+            $_SESSION['RA-message'] = "Your account has been deleted successfully, go back as soon as possible!";
+            session_unset();
+            session_destroy();
+            header("location: index.php");
+        } else {
+            $_SESSION['RA-message'] = "Something went wrong please try again.";
+            header("location: settings.php");
+        }
+    }
 ?>

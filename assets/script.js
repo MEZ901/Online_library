@@ -122,12 +122,6 @@ if (
   let regExpMedium = /\d+/;
   let regExpStrong = /.[!,@,#,$,% ,^,&‚*, ?‚_‚~‚¯‚ (,)]/;
 
-  var firstNameValid = false;
-  let lastNameValid;
-  let emailValid;
-  let passwordValid;
-  let rePasswordValid;
-
   function containsNumbers(str) {
     if (str == "") return -1;
     else if (/\d/.test(str)) return 0;
@@ -137,15 +131,12 @@ if (
   function fnameChecker() {
     if (containsNumbers(fname.value) == 1) {
       fname.style.borderColor = "#27ae60";
-      firstNameValid = true;
       return true;
     } else if (containsNumbers(fname.value) == 0) {
       fname.style.borderColor = "#e74c3c";
-      firstNameValid = false;
       return false;
     } else {
       fname.style.borderColor = "lightgrey";
-      firstNameValid = false;
       return false;
     }
   }
@@ -153,15 +144,12 @@ if (
   function lnameChecker() {
     if (containsNumbers(lname.value) == 1) {
       lname.style.borderColor = "#27ae60";
-      lastNameValid = true;
       return true;
     } else if (containsNumbers(lname.value) == 0) {
       lname.style.borderColor = "#e74c3c";
-      lastNameValid = false;
       return false;
     } else {
       lname.style.borderColor = "lightgrey";
-      lastNameValid = false;
       return false;
     }
   }
@@ -171,19 +159,16 @@ if (
       email.style.borderColor = "#27ae60";
       invalidIcon.style.display = "none";
       validIcon.style.display = "block";
-      emailValid = true;
       return true;
     } else if (!email.value.match(mailFormat) && email.value !== "") {
       email.style.borderColor = "#e74c3c";
       invalidIcon.style.display = "block";
       validIcon.style.display = "none";
-      emailValid = false;
       return false;
     } else {
       email.style.borderColor = "lightgrey";
       invalidIcon.style.display = "none";
       validIcon.style.display = "none";
-      emailValid = false;
       return false;
     }
   }
@@ -224,7 +209,6 @@ if (
         text.textContent = "Your password is too week.";
         text.classList.add("weak");
         password.style.borderColor = "#e74c3c";
-        passwordValid = true;
       }
 
       if (no == 2) {
@@ -232,7 +216,6 @@ if (
         text.textContent = "Your password is medium.";
         text.classList.add("medium");
         password.style.borderColor = "#27ae60";
-        passwordValid = false;
       } else {
         medium.classList.remove("active");
         text.classList.remove("medium");
@@ -244,7 +227,6 @@ if (
         text.textContent = "Your password is strong.";
         text.classList.add("strong");
         password.style.borderColor = "#27ae60";
-        passwordValid = false;
       } else {
         strong.classList.remove("active");
         text.classList.remove("strong");
@@ -264,29 +246,31 @@ if (
         rePassword.style.borderColor = "#27ae60";
         invalidIconP.style.display = "none";
         validIconP.style.display = "block";
-        rePasswordValid = true;
         return true;
       } else {
         rePassword.style.borderColor = "#e74c3c";
         invalidIconP.style.display = "block";
         validIconP.style.display = "none";
-        rePasswordValid = true;
         return false;
       }
     } else {
       rePassword.style.borderColor = "lightgrey";
       invalidIconP.style.display = "none";
       validIconP.style.display = "none";
-      rePasswordValid = true;
       return false;
     }
   }
 
   document.addEventListener("keyup", () => {
-    if (fnameChecker(), lnameChecker(), emailChecker(), passwordChecker(), repeatPasswordChecker()){
+    if (
+      fnameChecker() &&
+      lnameChecker() &&
+      emailChecker() &&
+      passwordChecker() &&
+      repeatPasswordChecker()
+    ) {
       signUpBtn.removeAttribute("disabled");
-    }
-    else{
+    } else {
       signUpBtn.setAttribute("disabled", "");
     }
   });

@@ -43,6 +43,16 @@
       <h1 class="p-3 text-center text-cstm">
         online library management system
       </h1>
+      <?php if (isset($_SESSION['message'])): ?>
+        <div class="alert alert-success alert-dismissible fade show">
+          <strong>Success!</strong>
+          <?php 
+          echo $_SESSION['message']; 
+          unset($_SESSION['message']);
+          ?>
+          <button type="button" class="btn-close" data-bs-dismiss="alert"></span>
+        </div>
+			<?php endif ?>
       <div class="d-flex pt-2">
         <div class="align-items-center w-25 d-none d-md-flex">
           <p class="">
