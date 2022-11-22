@@ -189,6 +189,16 @@
                 <div class="row justify-content-center">
                   <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
                     <p class="text-center text-cstm fs-2 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
+                    <?php if (isset($_SESSION['F-messages'])): ?>
+                      <div class="alert alert-warning alert-dismissible fade show">
+                        <strong>Sorry!</strong>
+                        <?php 
+                        echo $_SESSION['F-messages']; 
+                        unset($_SESSION['F-messages']);
+                        ?>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></span>
+                      </div>
+			              <?php endif ?>
 
                     <form action="main.php" method="POST" class="mx-1 mx-md-4" name="signUpForm">
 
@@ -312,7 +322,14 @@
   </footer>
 
   <!-- ================== BEGIN core-js ================== -->
-  <script>window.onscroll = function() {scrollFunction()};</script>
+  <?php
+  if(isset($_GET['signup'])){
+    echo '<script>document.body.setAttribute("onload", "signUpJs(); window.location.href=`#signUp`;")</script>';
+  }else{
+    echo '<script>document.body.removeAttribute("onload")</script>';
+  }
+  ?>
+  <script>window.onscroll = function() {scrollFunction()};</>
   <!-- <script src="assets/bootstrap-5.2.2/js/bootstrap.min.js"></script> -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
   <script src="assets/script.js"></script>

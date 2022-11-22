@@ -20,8 +20,8 @@
         $result = mysqli_query($conn, $emailCheck);
         $num = mysqli_num_rows($result);
         if($num == 1){
-            $_SESSION['F-message'] = "Email already exists";
-            header('location: index.php');
+            $_SESSION['F-messages'] = "Email already exists";
+            header('location: index.php?signup#signUp');
         }else{
             $reg = "insert into user (fname , lname , email , password) values('$fname' , '$lname' , '$email' , '$password')";
             mysqli_query($conn, $reg);
