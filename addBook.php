@@ -59,12 +59,12 @@
             <h2 class="text-center fw-bold" id="pageTitle"><?=$pageTitle?></h2>
         </header>
         <main>
-            <?php if (isset($_SESSION['book_message'])): ?>
+            <?php if (isset($_SESSION['F-message'])): ?>
                     <div class="alert alert-warning alert-dismissible fade show">
                         <strong>Sorry!</strong>
                         <?php 
-                        echo $_SESSION['book_message']; 
-                        unset($_SESSION['book_message']);
+                        echo $_SESSION['F-message']; 
+                        unset($_SESSION['F-message']);
                         ?>
                         <button type="button" class="btn-close" data-bs-dismiss="alert"></span>
                     </div>

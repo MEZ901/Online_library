@@ -20,12 +20,12 @@
         $result = mysqli_query($conn, $emailCheck);
         $num = mysqli_num_rows($result);
         if($num == 1){
-            $_SESSION['message'] = "Email already exists";
+            $_SESSION['F-message'] = "Email already exists";
             header('location: index.php');
         }else{
             $reg = "insert into user (fname , lname , email , password) values('$fname' , '$lname' , '$email' , '$password')";
             mysqli_query($conn, $reg);
-            $_SESSION['message'] = "Account has been created successfully !";
+            $_SESSION['S-message'] = "Account has been created successfully !";
             header('location: index.php#login');
         }
     }
@@ -48,7 +48,7 @@
             header('location: dashboard.php');
         }
         else {
-            $_SESSION['message'] = "Incorrect emai or password";
+            $_SESSION['F-message'] = "Incorrect email or password";
             header('location: index.php#login');
         }
     }
@@ -82,21 +82,21 @@
                 $result = mysqli_query($conn, $add);
                 
                 if($result){
-                    $_SESSION['book_message'] = "The book has been added successfully !";
+                    $_SESSION['S-message'] = "The book has been added successfully !";
                     header('location: books.php');
                 }else{
-                    $_SESSION['book_message'] = "Something went wrong please try again";
+                    $_SESSION['F-message'] = "Something went wrong please try again";
                     header('location: addBook.php');
                 }
                 
                 
             }else{
-                $_SESSION['book_message'] = "You can't upload this type of files in cover";
+                $_SESSION['F-message'] = "You can't upload this type of files in cover";
                 header('location: addBook.php');
             }
 
         }else{
-            $_SESSION['book_message'] = "Unknown error occurred !";
+            $_SESSION['F-message'] = "Unknown error occurred !";
             header('location: addBook.php');
         }
     }
@@ -151,15 +151,13 @@
         extract($_POST);
 
         $delete = "delete from book where book_ID = $bookId";
-        if (mysqli_query($conn, $delete)) {
-            $coverPath = "assets/img/covers/".$bookCover;
-            unlink($coverPath);
-            $_SESSION['book_message'] = "The book has been deleted successfuly.";
-            header("location: books.php");
-        } else {
-            $_SESSION['book_message'] = "Something went wrong please try again.";
-            header("location: books.php");
-        }
+        mysqli_query($conn, $delete);
+        
+        $coverPath = "assets/img/covers/".$bookCover;
+        unlink($coverPath);
+        $_SESSION['S-message'] = "The book has been deleted successfully.";
+        header("location: books.php");
+        
     }
 
     function editBook(){
@@ -169,7 +167,7 @@
         if($_FILES['cover']['name'] == ""){
             $update = "update book set title='$bookTitle', language='$bookLanguage', publication_date='$bookPublicationDate', author='$bookAuthor', genre='$bookGenre', price='$bookPrice', description='$bookDescription' where book_ID='$bookId'";
             mysqli_query($conn, $update);
-            $_SESSION['book_message'] = "The book has been updated successfuly.";
+            $_SESSION['S-message'] = "The book has been updated successfully.";
             header("location: books.php");
         }else{
             $img_name = $_FILES['cover']['name'];
@@ -190,21 +188,21 @@
                     $result = mysqli_query($conn, $update);
                     
                     if($result){
-                        $_SESSION['book_message'] = "The book has been added successfully !";
+                        $_SESSION['S-message'] = "The book has been added successfully !";
                         header('location: books.php');
                     }else{
-                        $_SESSION['book_message'] = "Something went wrong please try again";
+                        $_SESSION['F-message'] = "Something went wrong please try again";
                         header('location: addBook.php');
                     }
                     
                     
                 }else{
-                    $_SESSION['book_message'] = "You can't upload this type of files in cover";
+                    $_SESSION['F-message'] = "You can't upload this type of files in cover";
                     header("location: addBook.php?id=$bookId");
                 }
 
             }else{
-                $_SESSION['book_message'] = "Unknown error occurred !";
+                $_SESSION['F-message'] = "Unknown error occurred !";
                 header('location: addBook.php');
             }
         }
@@ -214,16 +212,12 @@
         global $conn;
         $id = $_SESSION['userID'];
 
-        $query = "delete from user where user_ID = $id";
-        $result = mysqli_query($conn, $query);
-        if ($result) {
-            $_SESSION['RA-message'] = "Your account has been deleted successfully, go back as soon as possible!";
-            session_unset();
-            session_destroy();
-            header("location: index.php");
-        } else {
-            $_SESSION['RA-message'] = "Something went wrong please try again.";
-            header("location: settings.php");
-        }
+        $booksQuery = "delete from book where users_ID = $id";
+        $bookResult = mysqli_query($conn, $booksQuery);
+
+        $accountQuery = "delete from user where user_ID = $id";
+        $accountResult = mysqli_query($conn, $accountQuery);
+        logout();
     }
+    
 ?>

@@ -58,12 +58,23 @@
             </div>
         </header>
         <main>
-            <?php if (isset($_SESSION['book_message'])): ?>
+            <?php if (isset($_SESSION['S-message'])): ?>
                 <div class="alert alert-success alert-dismissible fade show">
                     <strong>Success!</strong>
                     <?php 
-                    echo $_SESSION['book_message']; 
-                    unset($_SESSION['book_message']);
+                    echo $_SESSION['S-message']; 
+                    unset($_SESSION['S-message']);
+                    ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></span>
+                </div>
+			<?php endif ?>
+
+            <?php if (isset($_SESSION['F-message'])): ?>
+                <div class="alert alert-warning alert-dismissible fade show">
+                    <strong>Sorry!</strong>
+                    <?php 
+                    echo $_SESSION['F-message']; 
+                    unset($_SESSION['F-message']);
                     ?>
                     <button type="button" class="btn-close" data-bs-dismiss="alert"></span>
                 </div>
