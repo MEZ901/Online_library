@@ -17,3 +17,5 @@ Online Library Management System is an application which refers to library syste
 ### Back end:
 - PHP
 - MySql
+## MOCKUP AND PROTOTYPE
+[![Figma](/assets/img/figma-logo.webp "Figma logo")](https://www.figma.com/file/FxTIXjEnBcJFcysao5nLEn/Untitled?node-id=0%3A1&t=53z5oQrC4mc91Tio-1)
