@@ -130,7 +130,7 @@
                     echo $_SESSION['F-message']; 
                     unset($_SESSION['F-message']);
                     ?>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert"></span>
+                    <span><button type="button" class="btn-close" data-bs-dismiss="alert"></span>
                   </div>
 			          <?php endif ?>
 
@@ -141,7 +141,7 @@
                     echo $_SESSION['S-message']; 
                     unset($_SESSION['S-message']);
                     ?>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert"></span>
+                    <span><button type="button" class="btn-close" data-bs-dismiss="alert"></span>
                   </div>
 			          <?php endif ?>
 
@@ -203,7 +203,7 @@
                         echo $_SESSION['F-messages']; 
                         unset($_SESSION['F-messages']);
                         ?>
-                        <button type="button" class="btn-close" data-bs-dismiss="alert"></span>
+                        <span><button type="button" class="btn-close" data-bs-dismiss="alert"></span>
                       </div>
 			              <?php endif ?>
 
