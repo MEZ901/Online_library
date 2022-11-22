@@ -24,7 +24,7 @@
 <body>
   <div class="container">
     <header id="home">
-      <nav class="d-flex justify-content-between bg-white" id="navbar">
+      <!-- <nav class="d-flex justify-content-between bg-white" id="navbar">
         <img class="logo mt-2 mb-2" src="assets/img/Logo.png" alt="Logo" style="width: 15%;"/>
         <div class="w-25 mt-2 mb-2">
           <ul class="d-flex justify-content-around w-100 list-unstyled mb-0">
@@ -39,7 +39,34 @@
             </li>
           </ul>
         </div>
-      </nav>
+      </nav> -->
+
+
+
+<nav class="navbar navbar-expand-lg bg-white" id="navbar">
+  <div class="container-fluid">
+    <img class="logo mt-2 mb-2" src="assets/img/Logo.png" alt="Logo" style="width: 15%;"/>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse d-lg-flex justify-content-end" id="navbarSupportedContent">
+      <ul class="navbar-nav d-flex justify-content-around w-50 mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a href="#home" class="text-decoration-none text-dark">home</a>
+        </li>
+        <li class="nav-item">
+          <a href="#about" class="text-decoration-none text-dark">about</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a href="#feedback" class="text-decoration-none text-dark">feedback</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
       <h1 class="p-3 text-center text-cstm">
         online library management system
       </h1>
@@ -329,7 +356,7 @@
     echo '<script>document.body.removeAttribute("onload")</script>';
   }
   ?>
-  <script>window.onscroll = function() {scrollFunction()};</>
+  <script>window.onscroll = function() {scrollFunction()};</script>
   <!-- <script src="assets/bootstrap-5.2.2/js/bootstrap.min.js"></script> -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
   <script src="assets/script.js"></script>
