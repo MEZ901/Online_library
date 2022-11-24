@@ -212,6 +212,13 @@
         global $conn;
         $id = $_SESSION['userID'];
 
+        $imageQuery = "select `cover` from book where users_ID = $id";
+        $result = mysqli_query($conn, $imageQuery);
+        while($row = mysqli_fetch_assoc($result)){
+            $coverPath = "assets/img/covers/".$row['cover'];
+            unlink($coverPath);
+        }
+
         $booksQuery = "delete from book where users_ID = $id";
         $bookResult = mysqli_query($conn, $booksQuery);
 
