@@ -10,7 +10,7 @@
     if(isset($_POST['addBook']))          addBook();
     if(isset($_POST['deleteBook']))       deleteBook();
     if(isset($_POST['editBook']))         editBook();
-    if(isset($_POST['removeAccount']))   removeAccount();
+    if(isset($_POST['removeAccount']))    removeAccount();
 
     function signUp(){
         global $conn;
